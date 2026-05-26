@@ -1,0 +1,106 @@
+Vite é uma ferramenta para trabalhar com SPA. Ele cria uma base estruturada com vários arquivos e configurações prontas para rodar 
+o react dentro de um sistema funcional para não precisar criar tudo na mão.
+
+https://vite.dev/guide/
+
+Caso eu não tenha o pnpm instalado, rodo o comando abaixo:
+npm i -g pnpm
+
+Caso o comando acima de erro, tenho que rodar o comando abaixo com o vscode como administrador:
+Set-ExecutionPolicy RemoteSigned
+
+Agora posso verificar que já está instalado:
+pnpm -v
+
+Scaffolding Your First Vite Project
+pnpm create vite
+
+Em seguida aparecem algumas opções. Selecionei as opções abaixo:
+
+ Project name:
+│  todo
+│
+◇  Select a framework:
+│  React
+│
+◇  Select a variant:
+│  TypeScript
+│
+◇  Install with pnpm and start now?
+│  Yes
+
+
+Para criar os arquivos (pasta "dist") que irei disponibilizar dentro de um servidor, rodo o comando abaixo:
+pnpm build
+
+Posso escluir a pasta dist sem problema.
+
+Pasta "public" é usada para coisas que podem ser acessadas pela url, por exemplo uma lista de pdf que precisa ser baixada por qualquer utilizador. 
+
+Agora detro da src>assets, são coisas mais privadas
+
+
+                                                            INSTALANDO O TAILWINDCSS
+https://tailwindcss.com/docs/installation/using-vite
+
+No terminal rodo o comando abaixo:
+pnpm add tailwindcss @tailwindcss/vite
+
+                                                            Comando para rodar projeto
+pnpm dev
+
+                                                            FONTS
+Ele utilizou o google fonts para selecionar uma font específica.
+
+                                                            SITE DE ICONES
+https://phosphoricons.com/
+
+                                                            BIBLIOTECA DE VARIAÇÃO DE STILOS
+https://cva.style/docs
+
+Para instalar, no vs code rodo o comando abaixo:
+pnpm add class-variance-authority
+
+Para aplicar o intellisence no tailwindcss, na settings.json (Aba File > Preferences > Settings > Clicar na folha "Open Settings Json") adiciono a linha abaixo:
+
+"tailwindCSS.classFunctions": ["cva", "cx"]
+
+    
+    Para que serve o cva (class-variance-authority)?
+
+Ele serve para organizar e padronizar classes CSS (geralmente com Tailwind) de forma dinâmica e reutilizável.
+
+Em vez de ficar fazendo vários if, ternary ou concatenando strings de classe, você define variantes prontas.
+
+Resumão
+
+👉 cva = forma organizada de controlar classes CSS por variantes
+
+
+
+                                                            ICON Vite
+Para tranformar uma svg em um componente react faço a instação abaixo:
+pnpm add -D vite-plugin-svgr
+
+Fazendo isso consigo estilizar o icone mudando sua cor.
+
+															REACT ROUTER	
+Para dividir a página de componentes da página de listagens vou criar alguns roteamentos.
+
+Existem várias forma de fazer o roteamento, mas estarei utilizado o modo declarativo:
+
+https://reactrouter.com/start/declarative/installation
+
+com base no pnpm que foi utilizado nesse projeto, seguir os comandos abaixo para instalação:
+
+pnpm add react-router
+
+															USE LOCAL STORAGE
+															
+https://github.com/nas5w/use-local-storage
+Hook que faz o link de um estado do react com o local-storage.
+No exemplo do readme, consigo ver que ao entrar com um dado de texto por exemplo, a cada letra que digito já vai armazenando no local storage.
+
+executei o comando abaixo para instalar:
+
+pnpm add use-local-storage
