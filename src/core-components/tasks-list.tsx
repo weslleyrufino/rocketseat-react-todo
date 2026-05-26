@@ -4,8 +4,8 @@ import TaskItem from "./task-item";
 import useTasks from "../hooks/use-tasks";
 
 export default function TasksList(){
-    // const {tasks} = useTasks();
-    // console.log(tasks);
+    const {tasks} = useTasks();
+    console.log(tasks);
 
     return (
         <>
