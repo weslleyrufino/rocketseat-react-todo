@@ -3,29 +3,34 @@ import PlusIcon from "../assets/icons/plus.svg?react";
 import TaskItem from "./task-item";
 import useTasks from "../hooks/use-tasks";
 import useTask from "../hooks/use-task";
+import { TaskState } from "../models/task";
 
-export default function TasksList(){
-    const {tasks} = useTasks();
-    const {prepareTask} = useTask();
+export default function TasksList() {
+  const { tasks } = useTasks();
+  const { prepareTask } = useTask();
 
-    function handleNewTask(){
-        prepareTask();
-    }
+  function handleNewTask() {
+    prepareTask();
+  }
 
-    return (
-        <>
-            <section>
-                <Button icon={PlusIcon} className="w-full" onClick={handleNewTask}>
-                    Nova Tarefa
-                </Button>
-            </section>
+  return (
+    <>
+      <section>
+        <Button
+          icon={PlusIcon}
+          className="w-full"
+          onClick={handleNewTask}
+          disabled={tasks.some((task) => task.state === TaskState.Creating)} // Se alguma tarefa estiver no estado de criação, desabilita o botão de nova tarefa, para evitar que o usuário crie várias tarefas ao mesmo tempo, sem salvar nenhuma delas.
+        >
+          Nova Tarefa
+        </Button>
+      </section>
 
-            <section className="space-y-2">
-                {tasks.map((task) => (
-                    <TaskItem key={task.id} task={task} />
-                ))}
-                
-            </section>
-        </>
-    );
+      <section className="space-y-2">
+        {tasks.map((task) => (
+          <TaskItem key={task.id} task={task} />
+        ))}
+      </section>
+    </>
+  );
 }

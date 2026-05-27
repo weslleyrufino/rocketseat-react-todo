@@ -35,8 +35,8 @@ export default function TaskItem({ task }: TaskItemProps) {
   }
 
   function handleSaveTask(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    console.log(task?.id, taskTitle);
+    event.preventDefault();// Não sai da página, não recarrega a página, não faz nada, só executa o código que tem dentro da função;
+    console.log({ id: task?.id, title: taskTitle });
     // chamada para a função de atualizar;
     setIsEditing(false);
   }
