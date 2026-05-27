@@ -22,7 +22,7 @@ export default function TasksList(){
 
             <section className="space-y-2">
                 {tasks.map((task) => (
-                    <TaskItem key={task.id} />
+                    <TaskItem key={task.id} task={task} />
                 ))}
                 
             </section>
