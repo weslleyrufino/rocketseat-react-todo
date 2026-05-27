@@ -23,9 +23,16 @@ export default function useTask() {
         }]);
     }
 
-    
+    function updateTask(id: string, payload: {title: Task["title"]}){
+        setTasks(
+            tasks.map((task) => task.id === id ? {
+                ...task, state: TaskState.Created, ...payload
+            } : task) // Vou mapear aqui, para que quando for o meu id, eu vou atualizar o indice do array.
+        )
+    }
 
     return {
-        prepareTask
+        prepareTask,
+        updateTask
     }
 }
