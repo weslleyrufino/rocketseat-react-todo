@@ -1,5 +1,7 @@
 import LocalStorageLib from "use-local-storage";
 import { TASKS_KEY, TaskState, type Task } from "../models/task";
+import { delay } from "../helpers/utils";
+import React from "react";
 
 
 type UseLocalStorage = <T>(
@@ -14,6 +16,8 @@ const useLocalStorage = (
 
 export default function useTask() {
     const [tasks, setTasks] = useLocalStorage<Task[]>(TASKS_KEY, []);
+    const [isUpdatingTask, setIsUpdatingTask] = React.useState(false);
+    const [isDeletingTask, setIsDeletingTask] = React.useState(false);
 
     function prepareTask(){
         setTasks([...tasks, {
@@ -23,12 +27,17 @@ export default function useTask() {
         }]);
     }
 
-    function updateTask(id: string, payload: {title: Task["title"]}){
+    async function updateTask(id: string, payload: {title: Task["title"]}){
+    
+        setIsUpdatingTask(true);
+        await delay(1000); // Simulando uma requisição assíncrona, como uma chamada a uma API.
+
         setTasks(
             tasks.map((task) => task.id === id ? {
                 ...task, state: TaskState.Created, ...payload
             } : task) // Vou mapear aqui, para que quando for o meu id, eu vou atualizar o indice do array.
         )
+        setIsUpdatingTask(false);
     }
 
     function updateTaskStatus(id: string, concluded: boolean){
@@ -37,14 +46,22 @@ export default function useTask() {
         )
     }
 
-    function deleteTask(id: string){
+    async function deleteTask(id: string){
+        setIsDeletingTask(true);
+        
+        await delay(1000); // Simulando uma requisição assíncrona, como uma chamada a uma API.
+        
         setTasks(tasks.filter((task) => task.id !== id));
+
+        setIsDeletingTask(false);
     }
 
     return {
         prepareTask,
         updateTask,
         updateTaskStatus,
-        deleteTask
+        deleteTask,
+        isUpdatingTask,
+        isDeletingTask,
     }
 }

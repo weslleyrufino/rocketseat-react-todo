@@ -1,39 +1,42 @@
-import Text from "../components/text"
+import Text from "../components/text";
 import Container from "../components/container";
 import Icon from "../components/icon";
-import TrashIcon from "../assets/icons/trash.svg?react"
-import CheckIcon from "../assets/icons/check.svg?react"
-import PencilIcon from "../assets/icons/pencil.svg?react"
-import PlusIcon from "../assets/icons/plus.svg?react"
-import SpinnerIcon from "../assets/icons/spinner.svg?react"
-import XIcon from "../assets/icons/x.svg?react"
-import Badge from "../components/badge"
-import Button from "../components/button"
-import ButtonIcon from "../components/button-icon"
-import InputText from "../components/input-text"
-import InputCheckbox from "../components/input-checkbox"
-import Card from "../components/cards"
-import Skeleton from "../components/skeleton"
+import TrashIcon from "../assets/icons/trash.svg?react";
+import CheckIcon from "../assets/icons/check.svg?react";
+import PencilIcon from "../assets/icons/pencil.svg?react";
+import PlusIcon from "../assets/icons/plus.svg?react";
+import SpinnerIcon from "../assets/icons/spinner.svg?react";
+import XIcon from "../assets/icons/x.svg?react";
+import Badge from "../components/badge";
+import Button from "../components/button";
+import ButtonIcon from "../components/button-icon";
+import InputText from "../components/input-text";
+import InputCheckbox from "../components/input-checkbox";
+import Card from "../components/cards";
+import Skeleton from "../components/skeleton";
 
 export default function PageComponents() {
-    // Aqui consigo ver de fato a funcionalidade do variant. Quando coloca o variant="" consigo ver as variantes que defini.
+  // Aqui consigo ver de fato a funcionalidade do variant. Quando coloca o variant="" consigo ver as variantes que defini.
   return (
     <Container>
       <div className="grid gap-3">
         <div className="flex flex-col gap-10">
-          <Text variant="body-sm-bold" className="text-pink-base">Olá mundo!</Text>
+          <Text variant="body-sm-bold" className="text-pink-base">
+            Olá mundo!
+          </Text>
           <Text className="text-green-base">Olá mundo!</Text>
-          <Text variant="body-md-bold" >Olá mundo!</Text>
-          <Text>Olá mundo!</Text>{/*Esses dois ultimos ficam igual, porque a variant defaul definida é a "body-md" */}
+          <Text variant="body-md-bold">Olá mundo!</Text>
+          <Text>Olá mundo!</Text>
+          {/*Esses dois ultimos ficam igual, porque a variant defaul definida é a "body-md" */}
           <Text variant="body-md">Olá mundo!</Text>
         </div>
 
         <div className="flex gap-1">
           <Icon svg={TrashIcon} className="fill-green-base" />
-          <Icon svg={CheckIcon}/>
-          <Icon svg={PencilIcon}/>
-          <Icon svg={SpinnerIcon} animate/>
-          <Icon svg={XIcon}/>
+          <Icon svg={CheckIcon} />
+          <Icon svg={PencilIcon} />
+          <Icon svg={SpinnerIcon} animate />
+          <Icon svg={XIcon} />
         </div>
 
         <div className="flex gap-1">
@@ -41,16 +44,20 @@ export default function PageComponents() {
           <Badge variant="primary">2 de 5</Badge>
           <Badge loading>5</Badge>
         </div>
-        
+
         <div>
           <Button icon={PlusIcon}>Nova Tarefa</Button>
+          <Button icon={PlusIcon} handling>
+            Criando...
+          </Button>
         </div>
 
         <div className="flex gap-1">
-          <ButtonIcon icon={TrashIcon}/>
-          <ButtonIcon icon={TrashIcon} variant="secondary"/>
-          <ButtonIcon icon={TrashIcon} variant="tertiary"/>
+          <ButtonIcon icon={TrashIcon} />
+          <ButtonIcon icon={TrashIcon} variant="secondary" />
+          <ButtonIcon icon={TrashIcon} variant="tertiary" />
           <ButtonIcon icon={TrashIcon} loading />
+          <ButtonIcon icon={TrashIcon} handling />
         </div>
 
         <div>
@@ -58,8 +65,8 @@ export default function PageComponents() {
         </div>
 
         <div>
-            <InputCheckbox />
-            <InputCheckbox loading/>
+          <InputCheckbox />
+          <InputCheckbox loading />
         </div>
 
         <div>
@@ -67,9 +74,9 @@ export default function PageComponents() {
         </div>
 
         <div className="space-y-2">
-          <Skeleton className="h-6"/>
-          <Skeleton className="h-6"/>
-          <Skeleton className="w-96 h-6"/>
+          <Skeleton className="h-6" />
+          <Skeleton className="h-6" />
+          <Skeleton className="w-96 h-6" />
         </div>
       </div>
     </Container>
