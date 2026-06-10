@@ -57,7 +57,7 @@ export default function useTask() {
     }
 
     return {
-        prepareTask,
+        prepareTask,// Essa função é responsável por preparar uma nova tarefa, ou seja, criar uma nova tarefa com um id aleatório, um título vazio e um estado de criação, e adicionar essa tarefa ao array de tarefas.
         updateTask,
         updateTaskStatus,
         deleteTask,
